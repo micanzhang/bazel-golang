@@ -1,0 +1,19 @@
+workspace(name = "com_github_micanzhang_bazel_golang")
+
+git_repository(
+    name = "io_bazel_rules_go",
+    remote = "https://github.com/lingochamp/rules_go.git",
+    commit = "afb01df370258315bd1f74c0643e2f3ec575a1c4",
+)
+
+load("@io_bazel_rules_go//go:def.bzl", "go_repositories")
+
+new_local_repository(
+    name = "local_go_linux",
+    path = "/usr/lib/go",   # docker go installation path
+    build_file_content = "",
+)
+
+go_repositories(
+     go_linux = "@local_go_linux",
+)
