@@ -5,4 +5,4 @@ services:
 
 script:
   - docker build --no-cache -f Dockerfile -t micanzhang/bazel-golang .
-  - docker run --rm  -it  -v $PWD/examples:/root/examples  -w "/root/examples" stag-reg.llsops.com/library/bazel make run
+  - docker run --rm  -it  -v $PWD/examples:/root/examples  -w "/root/examples" micanzhang/bazel-golang make run
